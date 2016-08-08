@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="
+BT搜索，磁力搜索，电影资源搜索
+" />
+    <meta name="description" content="
+Btlike是收录最快，最全的bt搜索引擎。 " />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link href="assets/css/core.css" rel="stylesheet">
+
+    <title>Btlike - BT搜索，磁力搜索</title>    
+</head>
+
+<body>
+    <div class="container-fluid content">
+        <div class="header">
+            <nav>
+                <div class="navbar-header">
+                    <!-- <h3 class="text-muted"><a href="index.html">Btlike</a></h3> -->
+                    <a href="index.html"><img src="assets/img/header.jpg" /></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-form  search-title">
+                        <input type="text" class="form-control input-md input-search square search-title-input" id="search" placeholder="搜索电影，音乐，番号，软件 . . .">
+                        <button class="btn btn-md btn-success search-btn square" onclick="onSearch(search,1,'')">搜索</button>
+                        <div class="navbar-right trend-list">
+                            <a href="trend.html">热门排行</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row  custom-panel">
+            <div class="col-xs-6 col-md-1"></div>
+            <div class="col-xs-6 col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body" id="list-panel">
+                        <h4><b id="title"></b></h4>
+                        <p></p>
+                        </br>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">磁力链接</div>
+                            <div class="panel-body">
+                                <a href="" id="magnet"></a>
+                                </br>
+                                </br>
+                                <button class="btn btn-success btn-md infohash-button square" data-clipboard-text="" data-placement="bottom" id="btnCopy" title="已复制">
+                                    复制链接
+                                </button>
+                                <a href="" type="button" class="btn btn-md btn-success infohash-button square" id="download">立即下载</a>
+                            </div>
+                        </div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td class="active">文件大小</td>
+                                <td class="active">文件数量</td>
+                                <td class="active">创建时间</td>
+                                <!-- <td class="active">下载数</td> -->
+                            </tr>
+                            <tr>
+                                <td id="length"></td>
+                                <td id="file-count"></td>
+                                <td id="create-time"></td>
+                                <!-- <td id="download-num"></td> -->
+                            </tr>
+                        </table>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">部分文件</div>
+                            </p>
+                            <ul id="file-list">
+                            </ul>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">下载、在线观看</div>
+                            <div class="panel-body">
+                                <p><b>在线观看：</b>请复制磁力链接，使用<a href="http://115.com/" target="_blank">115离线下载</a>，<a href="http://pan.baidu.com/" target="_blank">百度网盘离线下载</a>或<a href="http://xunlei.com/" target="_blank">迅雷边下边看</a></p>
+                                </br>
+                                <p><b>下载：</b>点击【立即下载按钮】就会自动开始下载，或手动复制磁力链接到下载工具， <a href="http://www.utorrent.com/" target="_blank">μTorrent，</a>
+                                    <a href="http://www.bitcomet.com" target="_blank">BitComet，</a>
+                                    <a href="http://xunlei.com/" target="_blank">迅雷</a>
+                                </p>
+                                </br>
+                                <p><b>反馈：</b>任何意见与建议，请联系<a href="mailto:btlike2016@gmail.com">btlike2016@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3"></div>
+        </div>
+    </div>
+    <footer class="footer middle">
+        <div class="container">
+            <p class="text-muted">@2016 <a href="index.html">btlike.com</a> <a href="about.html">关于</a></p>
+        </div>
+    </footer>
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <script src="assets/js/string.js"></script>
+    <script src="assets/js/core.js"></script>
+    <script src="assets/js/detail.js"></script>
+    <script type="text/javascript">
+        var clipboard = new Clipboard('#btnCopy')
+        clipboard.on('success', function(e) {
+            $('#btnCopy').tooltip('show')
+            setTimeout(sharedModal, 1000)
+        })
+        $('#btnCopy').on('hidden.bs.tooltip', function() {
+            $('#btnCopy').tooltip('destroy')
+        })
+
+        window.onload = function() {
+            document.getElementById("search").focus();
+        };
+        keyword = getUrlParameter("keyword")
+        $("#search").val(keyword);
+        $("#search").keypress(function() {
+            if (event.which == 13) {
+                onSearch(search, 1, "")
+            }
+        });
+    </script>
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+</body>
+
+</html>

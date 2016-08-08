@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>Btlike - BT搜索，磁力搜索</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="
+BT搜索，磁力搜索，电影资源搜索
+" />
+    <meta name="description" content="
+Btlike是收录最快，最全的bt搜索引擎。 " />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="assets/css/core.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />    
+</head>
+
+<body>
+    <div class="container-fluid content">
+      <div class="header">
+          <nav>
+              <div class="navbar-header">
+                  <!-- <h3 class="text-muted"><a href="index.html">Btlike</a></h3> -->
+                  <a href="index.html"><img src="assets/img/header.jpg" /></a>
+              </div>
+              <div class="collapse navbar-collapse">
+                  <div class="navbar-form  search-title">
+                      <input type="text" class="form-control input-md input-search square search-title-input" id="search" placeholder="搜索电影，音乐，番号，软件 . . .">
+                      <button class="btn btn-md btn-success search-btn square" onclick="onSearch(search,1,'')">搜索</button>
+                  </div>
+              </div>
+
+          </nav>
+      </div>
+        <div class="row">
+            <div class="col-xs-6 col-md-1"></div>
+            <div class="col-xs-6 col-md-10">
+                <div class="panel panel-default about">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">近期热门</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-condensed" id="trend-list">
+                          <tr>
+                            <td>编号</td>
+                            <td>名称</td>
+                            <td>下载热度</td>
+                            <td>资源大小</td>
+                            <td>创建时间</td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-1"></div>
+        </div>
+    </div>
+
+    <footer class="footer middle">
+        <div class="container">
+            <p class="text-muted">@2016 <a href="index.html">btlike.com</a> <a href="about.html">关于</a></p>
+        </div>
+    </footer>
+
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="assets/js/core.js"></script>
+    <script src="assets/js/string.js"></script>
+    <script src="assets/js/trend.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("search").focus();
+        };
+        $("#search").keypress(function() {
+            if (event.which == 13) {
+                onSearch(search, 1, "")
+            }
+        });
+    </script>
+
+</body>
+
+</html>
